@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUPAIR</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/swiper.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <link rel="shortcut icon" href="{{asset('client/images/favicon.ico')}}">
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vidaloka&display=swap" rel="stylesheet">
+    <!-- js -->
+    <script src="./js/jquery.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/swiper.min.js"></script>
+</head>
+
+<!-- 
+    ****** 검토사항 ******
+    1) section1-1 : 반응형 줄일때 간격 
+
+
+ -->
+<style>
+    .img-wrap {
+        position: relative;
+        width: 100%;
+        height: 1000px;
+        background-image: url('/images/20307455.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        overflow: hidden;
+        /* 추가된 부분: 넘치는 부분을 가리기 위해 overflow 속성 사용 */
+    }
+
+    .img-wrap img {
+        max-width: 300px;
+        position: absolute;
+    }
+
+    .k1 {
+        top: 100px;
+        right: 700px;
+    }
+
+    .k2 {
+        top: 400px;
+        right: 900px;
+    }
+
+    .k3 {
+        top: 333px;
+        right: 300px;
+    }
+
+    .k4 {
+        top: 100px;
+        left: 650px;
+    }
+
+    .k6 {
+        top: 450px;
+        left: 960px;
+    }
+
+    .shake-div {
+        cursor: pointer;
+    }
+
+   @keyframes shake {
+        0%, 100% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        25%, 75% {
+            transform: translateX(-5px);
+        }
+        50% {
+            transform: translateX(5px);
+        }
+    }
+
+    @keyframes moveOut {
+        to {
+            transform: translateX(1500px);
+            opacity: 0;
+        }
+    }
+
+      @keyframes moveOut {
+        to {
+            transform: translateX(-1500px);
+            opacity: 0;
+        }
+    }
+    .shake-animation {
+        animation: shake 0.4s ease-in-out;
+    }
+
+    .move-out {
+        animation: moveOut 1s ease-out forwards;
+    }
+
+    @keyframes moveOut {
+        to {
+            transform: translateX(-1500px);
+            /* 이동하고자 하는 거리 및 방향으로 수정하세요 */
+        }
+    }
+
+       .move-out2 {
+        animation: moveOut2 1s ease-out forwards;
+    }
+
+    @keyframes moveOut2 {
+        to {
+            transform: translateX(1500px);
+            /* 이동하고자 하는 거리 및 방향으로 수정하세요 */
+        }
+    }
+</style>
+
+<body>
+    <div id="wrap">
+        <main id="main">
+
+            <div class="img-wrap">
+
+                <img class="k1 shake-div" src="/images/kk1.png" alt="">
+                <img class="k2 shake-div" src="/images/kk2.png" alt="">
+                <img class="k3 shake-div" src="/images/kk3.png" alt="">
+                <img class="k4 shake-div" src="/images/kk4.png" alt="">
+                <img class="k6 shake-div " src="/images/kk6.png" alt="">
+
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('.shake-div').click(function () {
+                $(this).addClass('shake-animation move-out');
+
+                // 애니메이션 종료 후 클래스 제거
+                setTimeout(function () {
+                    $('.shake-div').removeClass('shake-animation move-out');
+                }, 1000); // 여기의 시간은 애니메이션의 시간에 맞게 조절하십시오
+            });
+        });
+    </script>
+</body>
+
+</html>
